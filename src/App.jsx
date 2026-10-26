@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import LoginPage from './pages/LoginPage';
+import LandingPage from './pages/LandingPage';
 import DashboardPage from './pages/DashboardPage';
 import StudentsPage from './pages/StudentsPage';
 import ClassesPage from './pages/ClassesPage';
@@ -50,6 +51,7 @@ function App() {
               <Route path="recommendations" element={<RecommendationsPage />} />
               <Route path="reports" element={<ReportsPage />} />
               <Route path="profile" element={<ProfilePage user={DEMO_USER} />} />
+              <Route path="landing" element={<LandingPage />} />
             </Route>
             <Route path="/login" element={<Navigate to="/" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
@@ -59,8 +61,9 @@ function App() {
 
       return (
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       );
     },

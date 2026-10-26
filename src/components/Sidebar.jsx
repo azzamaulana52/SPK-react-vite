@@ -3,13 +3,14 @@ import {
   BookOpen,
   BriefcaseBusiness,
   FileText,
+  Globe,
   LayoutDashboard,
   LogOut,
   SlidersHorizontal,
   UserCircle2,
   Users,
 } from 'lucide-react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const navItems = [
   { label: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
@@ -43,6 +44,10 @@ function Sidebar({ onLogout, onNavigate }) {
       </div>
 
       <nav id="main-navigation" className="sidebar-nav" aria-label="Main navigation">
+        <Link to="/landing" className="nav-item landing-link" onClick={onNavigate}>
+          <Globe size={18} />
+          <span>Landing Page</span>
+        </Link>
         {navItems.map(({ label, to, icon: Icon }) => (
           <NavLink
             key={to}
